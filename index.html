@@ -6,7 +6,7 @@
   <meta name="theme-color" content="#102A56">
   <meta name="description" content="Industry-specific business databases and lead research, tailored to the companies and markets you want to reach.">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'self'; connect-src 'self'; form-action 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; base-uri 'self'; object-src 'none'; frame-src 'none'; img-src 'self' data:; style-src 'self'; font-src 'self'; script-src 'self'; connect-src 'self'; form-action 'none'; upgrade-insecure-requests">
   <title>DataOrbit Services | Better Business Data</title>
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="stylesheet" href="style.css">
@@ -168,7 +168,7 @@
 
         <div class="form-panel reveal" id="request-form">
           <div class="form-panel-heading"><div><p class="eyebrow"><span class="eyebrow-marker" aria-hidden="true"></span>DATABASE ENQUIRY</p><h3>Request a Database</h3></div><span class="required-note"><b>*</b> Required fields</span></div>
-          <form class="request-form" id="database-form" data-endpoint="" novalidate>
+          <form class="request-form" id="database-form" data-endpoint="" aria-describedby="form-privacy-note" novalidate>
             <div class="form-grid">
               <label for="full-name">Full Name <span>*</span><input id="full-name" name="fullName" type="text" autocomplete="name" maxlength="120" placeholder="Your name" required></label>
               <label for="business-email">Business Email <span>*</span><input id="business-email" name="businessEmail" type="email" autocomplete="email" maxlength="254" placeholder="you@company.com" required></label>
@@ -197,8 +197,7 @@
 
             <label class="requirements-label" for="additional-requirements">Additional Requirements<textarea id="additional-requirements" name="additionalRequirements" maxlength="2000" rows="3" placeholder="Company type, preferred format, or other useful details"></textarea></label>
 
-            <label class="consent-label" for="contact-consent"><input id="contact-consent" name="contactConsent" type="checkbox" required><span>I agree to be contacted about this request and acknowledge that I have reviewed the <a href="privacy.html">Privacy Policy</a>. <b>*</b></span></label>
-            <p class="form-demo-note">Demo only: this form is not connected to a submission service. Your details will not be sent or stored.</p>
+            <p class="form-demo-note" id="form-privacy-note"><strong>Privacy-first demo:</strong> Submitting this form only validates the fields in your browser. This website does not send the information to DataOrbit. Your browser may autofill or retain fields according to its settings. Do not enter sensitive information. For an actual enquiry, email <a href="mailto:info@dataorbitservices.com">info@dataorbitservices.com</a>. See our <a href="privacy.html">Privacy Policy</a>.</p>
             <noscript><p class="form-demo-note">JavaScript is required for this demo form. Nothing can be submitted while it is unavailable.</p></noscript>
             <button class="button button-primary form-submit" type="submit" disabled>Check request <span aria-hidden="true">↗</span></button>
             <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
@@ -212,7 +211,7 @@
     <div class="container footer-main">
       <div class="footer-brand"><a class="brand brand-footer" href="#home" aria-label="DataOrbit Services home"><img class="brand-icon" src="assets/dataorbit-logo-inverse.svg" alt=""><span class="brand-wordmark"><span class="brand-title">DataOrbit</span><span class="brand-subtitle">SERVICES</span></span></a><p>Industry-specific business databases and lead research, organized around the companies you want to reach.</p><p class="footer-contact-placeholder"><a href="mailto:info@dataorbitservices.com">info@dataorbitservices.com</a></p></div>
       <div class="footer-nav"><span class="footer-label">EXPLORE</span><a href="#home">Home</a><a href="#industries">Industries</a><a href="#services">Services</a><a href="#process">How it works</a><a href="#about">About us</a><a href="#contact">Contact us</a></div>
-      <div class="footer-nav footer-legal"><span class="footer-label">INFORMATION</span><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><p>Draft policy pages are provided as review templates. Confirm them with qualified counsel before launch.</p></div>
+      <div class="footer-nav footer-legal"><span class="footer-label">INFORMATION</span><a href="privacy.html">Privacy Policy</a><a href="terms.html">Terms &amp; Conditions</a><p>Our policy pages are review drafts and do not replace legal advice. Contact us for the current details of a specific project.</p></div>
     </div>
     <div class="container footer-bottom"><span>© <span id="current-year"></span> DataOrbit Services. All rights reserved.</span><a href="#top">Back to top ↑</a></div>
   </footer>

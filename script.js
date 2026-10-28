@@ -134,7 +134,10 @@ if (requestForm && statusMessage) {
     try {
       endpointUrl = new URL(endpoint, window.location.href);
     } catch {
-      endpointUrl = null;
+      statusMessage.dataset.state = 'error';
+      statusMessage.textContent = 'The configured form service address is invalid. Nothing was sent. Contact the site owner if this notice continues.';
+      statusMessage.hidden = false;
+      return;
     }
 
     const isSecureEndpoint = endpointUrl?.protocol === 'https:';
@@ -142,9 +145,10 @@ if (requestForm && statusMessage) {
       && window.location.protocol === 'http:'
       && ['localhost', '127.0.0.1', '[::1]'].includes(endpointUrl?.hostname || '');
     const hasEndpointCredentials = !!endpointUrl && (!!endpointUrl.username || !!endpointUrl.password);
-    if ((!isSecureEndpoint && !isLocalDevelopmentEndpoint) || hasEndpointCredentials) {
+    const isSameOriginEndpoint = endpointUrl?.origin === window.location.origin;
+    if ((!isSecureEndpoint && !isLocalDevelopmentEndpoint) || !isSameOriginEndpoint || hasEndpointCredentials) {
       statusMessage.dataset.state = 'error';
-      statusMessage.textContent = 'The configured form service must use HTTPS. Nothing was sent. Contact the site owner if this notice continues.';
+      statusMessage.textContent = 'The configured form service must use this website’s secure address. Nothing was sent. Contact the site owner if this notice continues.';
       statusMessage.hidden = false;
       return;
     }
